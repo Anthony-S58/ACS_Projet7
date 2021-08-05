@@ -1,53 +1,54 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Produits index{% endblock %}
+{% block title %}Produits index
+{% endblock %}
 
 {% block body %}
-    <h1>Produits index</h1>
+	<h1>Produits index</h1>
 
-    <table class="table">
-        <thead>
-            <tr>
-                <th>Id</th>
-                <th>Nom</th>
-                <th>Reference</th>
-                <th>Categorie</th>
-                <th>Date_achat</th>
-                <th>Lieu_achat</th>
-                <th>Date_fin_garantie</th>
-                <th>Prix</th>
-                <th>Conseils</th>
-                <th>Photo</th>
-                <th>Manuel</th>
-                <th>actions</th>
-            </tr>
-        </thead>
-        <tbody>
-        {% for produit in produits %}
-            <tr>
-                <td>{{ produit.id }}</td>
-                <td>{{ produit.Nom }}</td>
-                <td>{{ produit.Reference }}</td>
-                <td>{{ produit.Categorie }}</td>
-                <td>{{ produit.DateAchat ? produit.DateAchat|date('Y-m-d') : '' }}</td>
-                <td>{{ produit.LieuAchat }}</td>
-                <td>{{ produit.DateFinGarantie ? produit.DateFinGarantie|date('Y-m-d') : '' }}</td>
-                <td>{{ produit.Prix }}</td>
-                <td>{{ produit.Conseils }}</td>
-                <td>{{ produit.Photo }}</td>
-                <td>{{ produit.Manuel }}</td>
-                <td>
-                    <a href="{{ path('produits_show', {'id': produit.id}) }}">show</a>
-                    <a href="{{ path('produits_edit', {'id': produit.id}) }}">edit</a>
-                </td>
-            </tr>
-        {% else %}
-            <tr>
-                <td colspan="12">no records found</td>
-            </tr>
-        {% endfor %}
-        </tbody>
-    </table>
+	<table class="table">
+		<thead>
+			<tr>
+				{# <th>Id</th> #}
+				<th>Nom</th>
+				<th>Reference</th>
+				<th>Categorie</th>
+				<th>Date_achat</th>
+				<th>Lieu_achat</th>
+				<th>Date_fin_garantie</th>
+				<th>Prix</th>
+				<th>Conseils</th>
+				<th>Photo</th>
+				<th>Manuel</th>
+				<th>actions</th>
+			</tr>
+		</thead>
+		<tbody>
+			{% for produit in produits %}
+				<tr>
+					{# <td>{{ produit.id }}</td> #}
+					<td>{{ produit.Nom }}</td>
+					<td>{{ produit.Reference }}</td>
+					<td>{{ produit.Categorie }}</td>
+					<td>{{ produit.DateAchat ? produit.DateAchat|date('Y-m-d') : '' }}</td>
+					<td>{{ produit.LieuAchat }}</td>
+					<td>{{ produit.DateFinGarantie ? produit.DateFinGarantie|date('Y-m-d') : '' }}</td>
+					<td>{{ produit.Prix }}</td>
+					<td>{{ produit.Conseils }}</td>
+					<td>{{ produit.Photo }}</td>
+					<td>{{ produit.Manuel }}</td>
+					<td>
+						<a href="{{ path('produits_show', {'id': produit.id}) }}">show</a>
+						<a href="{{ path('produits_edit', {'id': produit.id}) }}">edit</a>
+					</td>
+				</tr>
+			{% else %}
+				<tr>
+					<td colspan="12">no records found</td>
+				</tr>
+			{% endfor %}
+		</tbody>
+	</table>
 
-    <a href="{{ path('produits_new') }}">Create new</a>
+	<a href="{{ path('produits_new') }}">Create new</a>
 {% endblock %}
