@@ -3,6 +3,7 @@ body {
   justify-content: center;
   align-items: center;
   flex-direction: column;
+  background-color: grey;
 }
 
 h1 {
@@ -32,4 +33,21 @@ table {
 .table td {
   border: 1px solid black;
   padding: 10px;
+}
+input {
+  height: 15px;
+  display: flex;
+  text-align: center;
+  margin: 10px;
+}
+label {
+  display: flex;
+  justify-content: center;
+  color: red;
+}
+
+button {
+  margin-top: 20px;
+  height: 40px;
+  font-size: 1.5em;
 }
