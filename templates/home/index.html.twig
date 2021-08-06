@@ -1,6 +1,6 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Gères ton stock !
+{% block title %}Stock !
 {% endblock %}
 
 {% block body %}
@@ -18,16 +18,17 @@
 	</style>
 
 	<div class="example-wrapper">
-		<h1>Gères ton stock !</h1>
+		<h1>Stock !</h1>
 
 
 	</div>
+	<div class="homebtn">
+		<button>
+			<a href="{{ path('app_register') }}">Inscription</a>
+		</button>
+		<button>
+			<a href="{{ path('app_login') }}">Connexion</a>
+		</button>
 
-	<button>
-		<a href="{{ path('app_login') }}">Connexion</a>
-	</button>
-
-	<button>
-		<a href="{{ path('app_register') }}">Inscription</a>
-	</button>
+	</div>
 {% endblock %}

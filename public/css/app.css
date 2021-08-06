@@ -3,13 +3,16 @@ body {
   justify-content: center;
   align-items: center;
   flex-direction: column;
-  background-color: grey;
+  background-color: white;
+  /* background: linear-gradient(90deg, #43aa8b, #000000, #43aa8b); */
 }
 
 h1 {
   display: flex;
   justify-content: center;
   align-items: center;
+  color: black;
+  font-size: 3em;
 }
 
 form {
@@ -43,11 +46,34 @@ input {
 label {
   display: flex;
   justify-content: center;
-  color: red;
 }
 
 button {
   margin-top: 20px;
   height: 40px;
   font-size: 1.5em;
+}
+
+/* page d'accueil */
+
+/* boutons */
+
+.homebtn {
+  margin-top: 150px;
+  display: flex;
+  gap: 100px;
+}
+.homebtn button {
+  border-radius: 20px;
+  cursor: pointer;
+  background: white;
+  height: 60px;
+  width: 180px;
+}
+.homebtn a {
+  text-decoration: none;
+  font-size: 1.3em;
+}
+a:visited {
+  color: black;
 }
