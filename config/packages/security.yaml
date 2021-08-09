@@ -36,3 +36,7 @@ security:
   access_control:
     - { path: ^/produits, roles: ROLE_ADMIN }
     # - { path: ^/profile, roles: ROLE_USER }
+    # - { path: ^/insert, roles: ROLE_ADMIN }
+    # - { path: ^/update, roles: ROLE_ADMIN }
+    # - { path: ^/delete, roles: ROLE_ADMIN }
+    # - { path: ^/edit, roles: ROLE_ADMIN }
