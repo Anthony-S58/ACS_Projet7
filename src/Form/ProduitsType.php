@@ -4,6 +4,7 @@ namespace App\Form;
 
 use App\Entity\Produits;
 use Symfony\Component\Form\AbstractType;
+use Symfony\Component\Form\Extension\Core\Type\FileType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 
@@ -20,9 +21,14 @@ class ProduitsType extends AbstractType
             ->add('Date_fin_garantie')
             ->add('Prix')
             ->add('Conseils')
-            ->add('Photo')
+            // ->add('Photo')
             ->add('Manuel')
-        ;
+            ->add('images', FileType::class, [
+                'label' => false,
+                'multiple' => true,
+                'mapped' => false,
+                'required' => false
+            ]);;
     }
 
     public function configureOptions(OptionsResolver $resolver)

@@ -9,6 +9,13 @@
 	<table class="table">
 		<tbody>
 			<tr>
+				{% for image in produit.images %}
+					<div>
+						<img src="{{ asset('/uploads/' ~ image.name) }}" alt="Image" width="250">
+					</div>
+				{% endfor %}
+			</tr>
+			<tr>
 				<th>Id</th>
 				<td>{{ produit.id }}</td>
 			</tr>
