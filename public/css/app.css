@@ -1,23 +1,54 @@
 body {
+  margin: 0px;
+  padding: 0px;
+  width: 100%;
+  height: 100vh;
   display: flex;
   justify-content: center;
   align-items: center;
   flex-direction: column;
-  background-color: white;
-  /* background: linear-gradient(90deg, #43aa8b, #000000, #43aa8b); */
+  text-align: center;
+  background-image: linear-gradient(
+    rgba(0, 0, 255, 0.5),
+    rgba(255, 255, 0, 0.5)
+  );
+  background-position: center;
+  background-repeat: no-repeat;
 }
-
+/* Home Page */
 h1 {
-  display: flex;
-  justify-content: center;
-  align-items: center;
   color: black;
   font-size: 3em;
+}
+.homebtn {
+  margin-top: 150px;
+  display: flex;
+  gap: 100px;
+}
+.homebtn button {
+  border-radius: 20px;
+  cursor: pointer;
+  height: 60px;
+  width: 180px;
+}
+.homebtn a {
+  text-decoration: none;
+  font-size: 1.3em;
+  color: white;
+}
+.homebtn a:hover {
+  color: #8b8bf2;
+}
+a:visited {
+  color: none;
 }
 
 form {
   display: flex;
   flex-direction: column;
+  justify-content: center;
+  text-align: center;
+  align-items: center;
 }
 
 table {
@@ -41,6 +72,7 @@ input {
   height: 15px;
   display: flex;
   text-align: center;
+  justify-content: center;
   margin: 10px;
 }
 label {
@@ -58,24 +90,25 @@ button {
 
 /* boutons */
 
-.homebtn {
-  margin-top: 150px;
-  display: flex;
-  gap: 100px;
+#see {
+  color: black;
 }
-.homebtn button {
+
+#modif {
+  color: black;
+}
+
+.btn {
   border-radius: 20px;
   cursor: pointer;
-  background: white;
   height: 60px;
   width: 180px;
+  background-color: black;
+  box-shadow: 3px 2px 8px 2px rgba(0, 0, 255, 0.5);
+  color: white;
 }
-.homebtn a {
-  text-decoration: none;
-  font-size: 1.3em;
-}
-a:visited {
-  color: black;
+.btn:hover {
+  color: #8b8bf2;
 }
 
 img {
@@ -85,4 +118,42 @@ img {
 
 #notice {
   font-size: 2em;
+}
+#deco {
+  background-color: red;
+  box-shadow: 3px 2px 8px 2px black;
+}
+#deco a {
+  text-decoration: none;
+  color: white;
+}
+
+#deco:hover {
+  box-shadow: none;
+}
+
+#inscription {
+  background-color: black;
+  box-shadow: 3px 2px 8px 2px rgba(0, 0, 255, 0.5);
+  color: white;
+}
+
+#connexion {
+  background-color: black;
+  box-shadow: 3px 2px 8px 2px rgba(0, 0, 255, 0.5);
+  color: white;
+}
+
+#add {
+  border-radius: 20px;
+  cursor: pointer;
+  height: 60px;
+  width: 180px;
+  background-color: green;
+  box-shadow: 3px 2px 8px 2px rgba(0, 0, 255, 0.5);
+  color: white;
+}
+#add a {
+  text-decoration: none;
+  color: white;
 }
