@@ -202,7 +202,7 @@ class ProduitsController extends AbstractController
     }
 
     /**
-     * @Route("/supprime/fichier/{id}", name="annonces_delete_fichier", methods={"DELETE"})
+     * @Route("/supprime/fichier/{id}", name="produits_delete_fichier", methods={"DELETE"})
      */
     public function deleteFichier(Fichiers $fichier, Request $request)
     {

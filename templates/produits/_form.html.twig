@@ -1,7 +1,7 @@
 {{ form_start(form) }}
 {{ form_widget(form) }}
 
-{# Vérifier si la route est "annonces_edit on affiche les images #}
+{# Vérifier si la route est "produits_edit on affiche les images #}
 {% if app.request.attributes.get('_route') == 'produits_edit' %}
 	<h2>Images</h2>
 	{% for image in produit.images %}
@@ -17,7 +17,7 @@
 	{% for fichier in produit.fichiers %}
 		<div>
 			<a href="{{ asset('/uploads/notices/' ~ fichier.name) }}" alt="noticepdf" width="150">notice</a>
-			<a href="{{ path('annonces_delete_fichier', {'id': fichier.id}) }}" data-delete data-token="{{ csrf_token('delete' ~ fichier.id) }}">Supprimer</a>
+			<a href="{{ path('produits_delete_fichier', {'id': fichier.id}) }}" data-delete data-token="{{ csrf_token('delete' ~ fichier.id) }}">Supprimer</a>
 		</div>
 	{% endfor %}
 {% endif %}
