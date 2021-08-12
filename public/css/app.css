@@ -82,3 +82,7 @@ img {
   width: 350px;
   height: 200px;
 }
+
+#notice {
+  font-size: 2em;
+}

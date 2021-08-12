@@ -11,7 +11,7 @@
 			<tr>
 				{% for image in produit.images %}
 					<div>
-						<img src="{{ asset('/uploads/' ~ image.name) }}" alt="Image" width="250">
+						<a href="{{ asset('/uploads/' ~ image.name) }}"><img src="{{ asset('/uploads/' ~ image.name) }}" alt="Image" width="250"></a>
 					</div>
 				{% endfor %}
 			</tr>
@@ -51,14 +51,22 @@
 				<th>Conseils</th>
 				<td>{{ produit.Conseils }}</td>
 			</tr>
-			{# <tr>
-									<th>Photo</th>
-									<td>{{ produit.Photo }}</td>
-								</tr> #}
 			<tr>
-				<th>Manuel</th>
-				<td>{{ produit.Manuel }}</td>
+				{% for fichier in produit.fichiers %}
+					<div>
+						<a id="notice" href="{{ asset('/uploads/notices/' ~ fichier.name) }}">notice</a>
+					</div>
+				{% endfor %}
 			</tr>
+
+			{# <tr>
+																											<th>Photo</th>
+																											<td>{{ produit.Photo }}</td>
+																										</tr> #}
+			{# <tr>
+																						<th>Manuel</th>
+																						<td>{{ produit.Manuel }}</td>
+																					</tr> #}
 		</tbody>
 	</table>
 

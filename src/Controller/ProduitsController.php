@@ -2,6 +2,7 @@
 
 namespace App\Controller;
 
+use App\Entity\Fichiers;
 use App\Entity\Produits;
 use App\Entity\Images;
 use App\Form\ProduitsType;
@@ -43,18 +44,38 @@ class ProduitsController extends AbstractController
             //on boucle sur les images
             foreach ($images as $image) {
                 //on génère un nouveau nom de fichier
-                $fichier = md5(uniqid()) . '.' . $image->guessExtension();
+                $imgnom = md5(uniqid()) . '.' . $image->guessExtension();
 
                 //on copie le fichier dans le dossier upload
                 $image->move(
                     $this->getParameter('images_directory'),
-                    $fichier
+                    $imgnom
                 );
 
                 //on stocke l'image dans la base de données (son nom)
                 $img = new Images();
-                $img->setName($fichier);
+                $img->setName($imgnom);
                 $produit->addImage($img);
+            }
+
+            //on récupère les fichiers transmis
+            $fichiers = $form->get('fichiers')->getData();
+
+            //on boucle sur les images
+            foreach ($fichiers as $fichier) {
+                //on génère un nouveau nom de fichier
+                $fichiername = md5(uniqid()) . '.' . $fichier->guessExtension();
+
+                //on copie le fichier dans le dossier upload
+                $fichier->move(
+                    $this->getParameter('fichiers_directory'),
+                    $fichiername
+                );
+
+                //on stocke le fichier dans la base de données (son nom)
+                $fich = new Fichiers();
+                $fich->setName($fichiername);
+                $produit->addFichier($fich);
             }
 
             $entityManager = $this->getDoctrine()->getManager();
@@ -95,18 +116,38 @@ class ProduitsController extends AbstractController
             //on boucle sur les images
             foreach ($images as $image) {
                 //on génère un nouveau nom de fichier
-                $fichier = md5(uniqid()) . '.' . $image->guessExtension();
+                $imgnom = md5(uniqid()) . '.' . $image->guessExtension();
 
                 //on copie le fichier dans le dossier upload
                 $image->move(
                     $this->getParameter('images_directory'),
-                    $fichier
+                    $imgnom
                 );
 
                 //on stocke l'image dans la base de données (son nom)
                 $img = new Images();
-                $img->setName($fichier);
+                $img->setName($imgnom);
                 $produit->addImage($img);
+            }
+
+            //on récupère les fichiers transmis
+            $fichiers = $form->get('fichiers')->getData();
+
+            //on boucle sur les fichiers
+            foreach ($fichiers as $fichier) {
+                //on génère un nouveau nom de fichier
+                $fichiername = md5(uniqid()) . '.' . $fichier->guessExtension();
+
+                //on copie le fichier dans le dossier upload
+                $fichier->move(
+                    $this->getParameter('fichiers_directory'),
+                    $fichiername
+                );
+
+                //on stocke le fichier dans la base de données (son nom)
+                $fich = new Fichiers();
+                $fich->setName($fichiername);
+                $produit->addFichier($fich);
             }
 
             $this->getDoctrine()->getManager()->flush();
@@ -152,6 +193,32 @@ class ProduitsController extends AbstractController
             $em = $this->getDoctrine()->getManager();
             $em->remove($image);
             $em->flush();
+
+            //on répond en json
+            return new JsonResponse(['success' => 1]);
+        } else {
+            return new JsonResponse(['error' => 'Token Invalide'], 400);
+        }
+    }
+
+    /**
+     * @Route("/supprime/fichier/{id}", name="annonces_delete_fichier", methods={"DELETE"})
+     */
+    public function deleteFichier(Fichiers $fichier, Request $request)
+    {
+        $data = json_decode($request->getContent(), true);
+
+        //on verifie si le token est valide
+        if ($this->isCsrfTokenValid('delete' . $fichier->getId(), $data['_token'])) {
+            // on récupère le nom du fichiere
+            $name = $fichier->getName();
+            //on supprime le fichier
+            unlink($this->getParameter('fichiers_directory') . '/' . $name);
+
+            //on supprime de la base de données
+            $en = $this->getDoctrine()->getManager();
+            $en->remove($fichier);
+            $en->flush();
 
             //on répond en json
             return new JsonResponse(['success' => 1]);

@@ -74,9 +74,15 @@ class Produits
      */
     private $images;
 
+    /**
+     * @ORM\OneToMany(targetEntity=Fichiers::class, mappedBy="produits", orphanRemoval=true, cascade={"persist"})
+     */
+    private $fichiers;
+
     public function __construct()
     {
         $this->images = new ArrayCollection();
+        $this->fichiers = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -228,6 +234,36 @@ class Produits
             // set the owning side to null (unless already changed)
             if ($image->getProduits() === $this) {
                 $image->setProduits(null);
+            }
+        }
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|Fichiers[]
+     */
+    public function getFichiers(): Collection
+    {
+        return $this->fichiers;
+    }
+
+    public function addFichier(Fichiers $fichier): self
+    {
+        if (!$this->fichiers->contains($fichier)) {
+            $this->fichiers[] = $fichier;
+            $fichier->setProduits($this);
+        }
+
+        return $this;
+    }
+
+    public function removeFichier(Fichiers $fichier): self
+    {
+        if ($this->fichiers->removeElement($fichier)) {
+            // set the owning side to null (unless already changed)
+            if ($fichier->getProduits() === $this) {
+                $fichier->setProduits(null);
             }
         }
 

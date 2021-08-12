@@ -22,13 +22,23 @@ class ProduitsType extends AbstractType
             ->add('Prix')
             ->add('Conseils')
             // ->add('Photo')
-            ->add('Manuel')
+            // ->add('Manuel')
+            // on ajoute le champ "images" dans le formulaire
+            // il n'est pas lié à la basse de données (mapped à false)
             ->add('images', FileType::class, [
-                'label' => false,
+                'label' => 'Image :',
                 'multiple' => true,
                 'mapped' => false,
                 'required' => false
-            ]);;
+            ])
+            // on ajoute le champ "fichiers" dans le formulaire
+            // il n'est pas lié à la base de données (mapped à false)
+            ->add('fichiers', FileType::class, [
+                'label' => 'Manuel :',
+                'multiple' => true,
+                'mapped' => false,
+                'required' => false,
+            ]);
     }
 
     public function configureOptions(OptionsResolver $resolver)
