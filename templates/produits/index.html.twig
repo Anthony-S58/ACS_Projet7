@@ -5,7 +5,7 @@
 {% endblock %}
 
 {% block body %}
-	<h1>Produits index</h1>
+	<h1>Liste des produits</h1>
 
 	<button id="add">
 		<a href="{{ path('produits_new') }}">Ajouter un produit</a>
@@ -41,17 +41,17 @@
 					{{ produit.Reference }}
 					</td>
 					{# <td>
-																																													{{ produit.Categorie }}
-																																													</td> #}
+																																																							{{ produit.Categorie }}
+																																																							</td> #}
 						<td>
 					{{ produit.DateAchat ? produit.DateAchat|date('d/m/Y') : '' }}
 					</td>
 					{# <td>
-																																								{{ produit.LieuAchat }}
-																																								</td> #}
-					{# <td>
-																																																		{{ produit.DateFinGarantie ? produit.DateFinGarantie|date('d/m/Y') : '' }}
+																																																		{{ produit.LieuAchat }}
 																																																		</td> #}
+					{# <td>
+																																																												{{ produit.DateFinGarantie ? produit.DateFinGarantie|date('d/m/Y') : '' }}
+																																																												</td> #}
 						<td>
 					{{ produit.Prix }}
 					</td>

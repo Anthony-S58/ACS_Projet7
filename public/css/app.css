@@ -2,7 +2,6 @@ body {
   margin: 0px;
   padding: 0px;
   width: 100%;
-  /* height: 100vh; */
   display: flex;
   justify-content: center;
   align-items: center;
@@ -10,9 +9,9 @@ body {
   text-align: center;
   background-color: rgba(30, 255, 0, 0.5);
   background-position: center;
-  /* background-repeat: no-repeat; */
 }
 /* Home Page */
+
 h1 {
   color: black;
   font-size: 3em;
@@ -31,13 +30,13 @@ h1 {
 .homebtn a {
   text-decoration: none;
   font-size: 1.3em;
-  color: white;
+  color: white !important;
 }
 .homebtn a:hover {
   color: #8b8bf2;
 }
 a:visited {
-  color: none;
+  color: black;
 }
 
 form {
@@ -153,4 +152,40 @@ img {
 #add a {
   text-decoration: none;
   color: white;
+}
+#add:hover {
+  box-shadow: none;
+}
+
+#back {
+  padding: 20px;
+  font-size: 1.4em;
+}
+#modify {
+  border-radius: 20px;
+  cursor: pointer;
+  height: 60px;
+  width: 180px;
+  background-color: orange;
+  box-shadow: 3px 2px 8px 2px rgba(0, 0, 255, 0.5);
+  color: black !important;
+}
+
+#modify a {
+  text-decoration: none;
+}
+#modify:hover {
+  box-shadow: none;
+}
+#delete {
+  border-radius: 20px;
+  cursor: pointer;
+  height: 60px;
+  width: 180px;
+  background-color: red;
+  box-shadow: 3px 2px 8px 2px rgba(0, 0, 255, 0.5);
+  color: white;
+}
+#delete:hover {
+  box-shadow: none;
 }

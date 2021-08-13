@@ -1,6 +1,6 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}New Produits
+{% block title %}Ajout
 {% endblock %}
 
 {% block body %}
@@ -8,5 +8,5 @@
 
 	{{ include('produits/_form.html.twig') }}
 
-	<a href="{{ path('produits_index') }}">Retour</a>
+	<a id="back" href="{{ path('produits_index') }}">Retour</a>
 {% endblock %}
